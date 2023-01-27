@@ -6,17 +6,17 @@
   </div>
 
 
-  <div class="quizz_question">
+  <div *ngIf="!finish" class="quizz_question">
     <h2>{{ optionSelected.question }}</h2>
   </div>
 
-  <div class="quizz_options">
+  <div *ngIf="!finish" class="quizz_options">
     <button class="btn-option" *ngFor="let question of optionSelected.options; let i = index"
     (click)="playerChoice(question.alias)">{{ question.name }}</button>
   </div>
 
   <div *ngIf="finish" class="quizz_result">
     <h2>O seu resultado é:</h2>
-    <p>Resposta Selecionada</p>
+    <p>{{ answerSelected }}</p>
   </div>
 </div>
